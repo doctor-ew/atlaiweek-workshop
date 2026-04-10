@@ -1,5 +1,6 @@
 {
   "name": "atlaiweek-talk",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "slidev slides.md",
@@ -7,7 +8,8 @@
     "export": "slidev export slides.md --format pdf"
   },
   "dependencies": {
-    "@slidev/cli": "^0.49.0",
-    "@slidev/theme-seriph": "latest"
+    "@slidev/cli": "^52.11.5",
+    "@slidev/theme-seriph": "latest",
+    "vue": "^3.5.28"
   }
 }
