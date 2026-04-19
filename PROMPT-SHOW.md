@@ -30,7 +30,9 @@ Walk the audience through each step out loud. Explain what each command does bef
 
 | Command | When to use it | What to say to the audience |
 |---------|---------------|----------------------------|
-| `/effort high` | Before any architecture decision | "This tells Claude to think harder — more tokens, slower, better" |
+| `/drprod` | Opening the live build | "This is the spec production harness — it creates the GitHub Issue, asks me 3 grounding questions, extracts every code identifier and verifies it exists, then writes a spec with verified sources. No spec without proof." |
+| `/dreng` | After spec approval | "Adversarial Engineering Lane — it challenges every claim in the spec before a single line of code. Catches hallucinated function names, wrong file paths, drift between the PRD and reality." |
+| `/implement` | After /dreng | "Builds exactly what the spec says. No hallucinated scope. No surprise files." |
 | `/simplify` | After generating a component | "This is Claude reviewing its own work — watch what it cuts" |
 | `/loop 2m /simplify` | After a build sprint | "We're going to let Claude refine this on repeat for 2 minutes" |
 | gstack `/office-hours` | Opening framing | "This is the CEO role — it pushes back on bad ideas before we build them" |
@@ -41,13 +43,15 @@ Walk the audience through each step out loud. Explain what each command does bef
 
 ## Live build: the one feature we build on stage
 
-**Real-time MARTA status card** — shows current train/bus delays for lines serving Mercedes-Benz Stadium. Audience sees: prompt → component → `/simplify` → `/design-review` → deployed.
+**Real-time MARTA status card** — shows current train/bus delays for lines serving Mercedes-Benz Stadium.
+
+Audience sees: `/drprod` (issue + grounding questions + spec) → approve → `/dreng` (adversarial verification) → `/implement` → `/ship` → deployed.
 
 Start here:
 
-> "Let's build the MARTA status card — the thing fans check the moment they leave their hotel. Watch what happens when I run `/effort high` first."
+> "Let's build the MARTA status card — the thing fans check the moment they leave their hotel. I'm going to run `/drprod` first, which will create the GitHub Issue and ask me three questions before it writes a single line of spec."
 
-Then scaffold the component live, run `/simplify`, run gstack `/design-review`, push with `/ship`.
+Walk through the grounding questions live — that's the demo-within-the-demo. Then approve the spec, run `/dreng`, run `/implement`, push with `/ship`.
 
 ## The reveal
 
