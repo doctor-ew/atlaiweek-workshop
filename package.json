@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "slidev slides.md",
-    "build": "slidev build slides.md --base /slides/",
+    "build": "slidev build slides.md --base /",
     "export": "slidev export slides.md --format pdf"
   },
   "dependencies": {
