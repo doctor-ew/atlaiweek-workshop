@@ -20,7 +20,7 @@ class: text-left
 
 <div class="mt-6 text-amber-400 font-semibold text-xl">Atlanta AI Week · April 2026</div>
 
-<div class="mt-4 text-gray-300">Drew Schillinger · Enterprise Architect · @connexure · @CTO2Go</div>
+<div class="mt-4 text-gray-300">Drew Schillinger · Enterprise Architect · @connexure · @CTO2Go.co</div>
 
 <div class="abs-br m-6 text-gray-400 text-sm">⚽ Match Day ATL</div>
 
@@ -98,4 +98,8 @@ src: ./pages/17-end.md
 
 ---
 src: ./pages/08-fafnir.md
+---
+
+---
+src: ./pages/18-atcn.md
 ---

@@ -1,4 +1,4 @@
----
+Thanks!---
 layout: center
 background: '#0d1117'
 ---
