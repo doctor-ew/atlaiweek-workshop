@@ -10,13 +10,23 @@ drawings:
 transition: slide-left
 title: From Prompt to Production
 mdc: true
-defaults:
-  background: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1920&h=1080&fit=crop'
+layout: two-cols
+class: text-left
 ---
 
----
-src: ./pages/01-cover.md
----
+# From Prompt to Production
+
+**Building a FIFA Fan App with Claude Code**
+
+<div class="mt-6 text-amber-400 font-semibold text-xl">Atlanta AI Week · April 2026</div>
+
+<div class="mt-4 text-gray-300">Drew Schillinger · Enterprise Architect · @doctorew</div>
+
+<div class="abs-br m-6 text-gray-400 text-sm">⚽ Match Day ATL</div>
+
+::right::
+
+<img src="/app-screenshot.png" class="rounded-xl border border-amber-400/30 h-full object-cover object-left shadow-2xl" />
 
 ---
 src: ./pages/02-julia-child.md
