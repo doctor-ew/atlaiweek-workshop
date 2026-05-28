@@ -1,4 +1,4 @@
-Thanks!---
+---
 layout: center
 background: '#0d1117'
 ---
@@ -6,7 +6,7 @@ background: '#0d1117'
 <div class="flex items-start gap-10 max-w-4xl mx-auto mt-4">
 
 <div class="shrink-0 w-96">
-  <img src="/reddit-garry.png" class="rounded-xl border border-gray-700 shadow-xl w-full" />
+  <img :src="'/reddit-garry.png'" class="rounded-xl border border-gray-700 shadow-xl w-full" />
 </div>
 
 <div class="text-left space-y-5 pt-2">

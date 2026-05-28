@@ -32,6 +32,6 @@ layout: two-cols
 ::right::
 
 <div class="flex flex-col items-center justify-center h-full gap-3">
-  <img src="/FIFA Navigator QR Code.png" class="max-h-72 object-contain" />
+  <img :src="'/FIFA Navigator QR Code.png'" class="max-h-72 object-contain" />
   <div class="text-gray-400 text-xs font-mono">Scan to try it live</div>
 </div>

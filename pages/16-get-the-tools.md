@@ -33,4 +33,4 @@ background: '#0d1117'
 
 </div>
 
-<div class="mt-10 text-gray-500">@doctorew · Atlanta AI Week 2026</div>
+<div class="mt-10 text-gray-500">@doctorew · Trust Don't Rust · Atlanta 2026</div>

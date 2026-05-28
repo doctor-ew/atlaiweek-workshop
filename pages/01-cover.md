@@ -7,7 +7,9 @@ class: text-center
 
 **Building a FIFA Fan App with Claude Code**
 
-<div class="mt-6 text-amber-400 font-semibold text-xl">Atlanta AI Week · April 2026</div>
+<div class="mt-6 text-amber-400 font-semibold text-xl">Trust Don't Rust · Atlanta · 2026</div>
+
+<div class="mt-2 text-gray-400 text-sm">⚽ 16 days to kickoff at Mercedes-Benz Stadium</div>
 
 <div class="mt-4 text-gray-300">Drew Schillinger · Enterprise Architect · @doctorew</div>
 

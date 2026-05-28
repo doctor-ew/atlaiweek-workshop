@@ -6,7 +6,7 @@ background: '#0d1117'
 # Meet Fafnir 🐉
 
 <div class="flex justify-center mt-6">
-  <img src="/fafnir-credible-hulk.png" class="rounded-xl border border-amber-400/30 max-h-64 object-contain shadow-xl" />
+  <img :src="'/fafnir-credible-hulk.png'" class="rounded-xl border border-amber-400/30 max-h-64 object-contain shadow-xl" />
 </div>
 
 ::right::

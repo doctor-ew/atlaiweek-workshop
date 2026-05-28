@@ -8,7 +8,7 @@ background: '#0d1117'
 <div class="mt-8 flex items-center gap-10 max-w-2xl mx-auto">
 
 <div class="shrink-0">
-  <img src="/atcn-logo.png" class="max-h-28 object-contain" onerror="this.parentElement.style.display='none'" />
+  <img :src="'/atcn-logo.png'" class="max-h-28 object-contain" />
 </div>
 
 <div class="text-left space-y-4">
