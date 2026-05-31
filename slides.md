@@ -59,11 +59,39 @@ src: ./pages/tdr-07-run-anywhere.md
 ---
 
 ---
+src: ./pages/tdr-07b-flags.md
+---
+
+---
 src: ./pages/tdr-08-works-everywhere.md
 ---
 
 ---
+src: ./pages/tdr-08b-harness-anatomy.md
+---
+
+---
+src: ./pages/tdr-08c-hooks.md
+---
+
+---
 src: ./pages/tdr-09-rollout.md
+---
+
+---
+src: ./pages/tdr-10-trust-artifacts.md
+---
+
+---
+src: ./pages/tdr-11-analytics.md
+---
+
+---
+src: ./pages/tdr-08d-watch-for.md
+---
+
+---
+src: ./pages/tdr-12-beads.md
 ---
 
 ---

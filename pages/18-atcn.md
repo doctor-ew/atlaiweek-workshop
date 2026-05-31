@@ -14,12 +14,12 @@ background: '#0d1117'
 <div class="text-left space-y-4">
   <div class="text-xl font-semibold">6-session build cohort</div>
   <div class="space-y-2 text-gray-300 text-sm">
-    <div>Session 1 = specs · <span class="text-amber-400 font-semibold">We just kicked off</span></div>
-    <div>Atlanta 2026</div>
+    <div><span class="text-amber-400 font-semibold">Same pipeline.</span> Real contributors. Real product shipping real code.</div>
+    <div>Session 1 kicked off this week. Cohort #1, Atlanta 2026.</div>
   </div>
   <div class="p-4 bg-gray-800/80 rounded-lg border border-amber-400/30 text-sm space-y-1">
-    <div class="text-gray-200 font-semibold">Bring this to your community.</div>
-    <div class="text-gray-400">Find me after — ask how to start a cohort.</div>
+    <div class="text-gray-200 font-semibold">The Connexure proof is battle-tested. Now we're teaching it.</div>
+    <div class="text-gray-400">Find me after — ask how to start a cohort in your community.</div>
   </div>
 </div>
 

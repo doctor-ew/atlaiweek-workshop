@@ -1,4 +1,4 @@
-# PRD: MARTA Status Card
+# PRD: Leave By Badge
 
 **Paste this at the start of the live demo session.**
 
@@ -6,65 +6,68 @@
 
 ## What we're building
 
-A `MartaStatusCard` React component for the Match Day ATL sidebar.
+A "Leave by HH:MM PM" badge on each zone row in the `ZonePicker` component.
 
-It shows real-time service status for the three MARTA routes that serve
-Mercedes-Benz Stadium, so fans know at a glance whether their line is running
-before they ask Claude for directions.
+Fans see at a glance whether they have time to finish dinner or need to leave
+right now — without doing any math. The feature is simple. Watch the pipeline.
 
 ---
 
 ## Context
 
-- App: `atl-fifa-navigator-v2` — Next.js 16 App Router, bun, Tailwind 4, shadcn/ui
-- Sidebar already has: MatchSelector, NeighborhoodPicker, RecommendationCard
-- MARTA data already available at `/api/marta` (returns buses + trains with positions)
+- App: `atl-fifa-navigator-v2` — Next.js 16 App Router, bun, Tailwind, shadcn/ui
+- Sidebar already has: `MatchSelector`, `ZonePicker`, `MartaStatusCard`, `RecommendationArea`
+- Match data: `src/lib/matches.ts` — exposes `getMatches()`, `getMatch(id)`, `minutesUntilKickoff(match)`
+- Selected match flows into `ZonePicker` via props from `Sidebar.tsx`
 - Design tokens: `text-amber-400` accent, `bg-gray-800/80` panels, `text-gray-300` body
 
 ---
 
-## The component
+## The feature
 
-**Location:** `src/components/MartaStatusCard.tsx`  
-**Used in:** `src/app/HomeClient.tsx` sidebar, above the CTA button
+**File to change:** `src/components/ZonePicker.tsx`
 
-**Shows status for three lines:**
+Add a leave-by badge beneath each zone name. No new component file needed.
 
-| Line | Color | Route |
-|------|-------|-------|
-| Gold Line | amber | Doraville ↔ Five Points ↔ Stadium |
-| Blue Line | blue | Indian Creek ↔ Five Points ↔ Stadium |
-| College Park | orange | Airport direct, ~30 min |
+**Time math:**
+```
+leave_by = kickoff_time_ET − ZONE_TRAVEL_MINUTES[zone] − 15 min buffer
+```
 
-**Status levels (derive from MARTA vehicle data):**
+**Static travel time map (hardcoded — no API calls):**
 
-- 🟢 **On Schedule** — vehicles running, no significant gaps
-- 🟡 **Minor Delays** — gaps detected or crowding reported
-- 🔴 **Major Delays** — significant gaps or service disruption
+| Zone | Minutes | Constant |
+|------|---------|----------|
+| Downtown (Five Points / Centennial Park) | 10 | `ZONE_TRAVEL_MINUTES.downtown` |
+| Midtown (Arts Center / Peachtree) | 15 | `ZONE_TRAVEL_MINUTES.midtown` |
+| Airport (College Park / MARTA) | 35 | `ZONE_TRAVEL_MINUTES.airport` |
+| Decatur (Blue Line) | 30 | `ZONE_TRAVEL_MINUTES.decatur` |
+| Dunwoody (Red Line) | 45 | `ZONE_TRAVEL_MINUTES.dunwoody` |
 
-**UX rules:**
+**Badge states:**
 
-- Card refreshes every 30 seconds (use SWR with `refreshInterval: 30000`)
-- Show "Last updated HH:MM" timestamp in muted text
-- If `/api/marta` fails, show a neutral "Status unavailable" state — never crash
-- Compact: fits in the `w-80` sidebar without scrolling
+- **Neutral** (`text-gray-400`) — more than 30 min until leave-by time
+- **Urgent** (`text-amber-400`) — ≤ 30 min remaining
+- **Now** (`text-red-400`) — past leave-by time → reads "Leave now — you may be late"
+- **Hidden** — no match selected
 
 ---
 
 ## What this is NOT
 
-- No push notifications
-- No historical data
-- No per-vehicle tracking (that's the map's job)
-- No animations beyond a subtle pulse on the refresh indicator
+- No live routing or traffic-adjusted estimates
+- No countdown timer (static label, not ticking)
+- No new API calls
+- No new component file
 
 ---
 
 ## Acceptance criteria
 
-1. Component renders three line rows with correct colors
-2. Status badge updates correctly from live MARTA data
-3. 30s auto-refresh works without user interaction
-4. Graceful error state when API is down
-5. Fits sidebar without layout shift
-6. TypeScript — no `any`
+1. Every zone row shows a "Leave by HH:MM AM/PM ET" label when a match is selected
+2. Leave-by time = `kickoff − travel_minutes[zone] − 15 min`, displayed in 12-hour ET
+3. Badge is neutral when > 30 min away, amber when ≤ 30 min, red + "Leave now" when past
+4. No badge rendered when no match is selected
+5. `minutesUntilKickoff()` from `src/lib/matches.ts` anchors the time math
+6. No `any` types
+7. No layout shift in the `w-80` sidebar

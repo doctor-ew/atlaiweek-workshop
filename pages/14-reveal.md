@@ -31,7 +31,13 @@ layout: two-cols
 
 ::right::
 
-<div class="flex flex-col items-center justify-center h-full gap-3">
-  <img :src="'/FIFA Navigator QR Code.png'" class="max-h-72 object-contain" />
-  <div class="text-gray-400 text-xs font-mono">Scan to try it live</div>
+<div class="flex flex-col items-center justify-center h-full gap-6">
+  <div class="flex flex-col items-center gap-2">
+    <img :src="'/fifa-app-qr.png'" class="max-h-52 object-contain" />
+    <div class="text-gray-400 text-xs font-mono">Scan to try the app</div>
+  </div>
+  <div class="flex flex-col items-center gap-2">
+    <img :src="'/FIFA Navigator QR Code.png'" class="max-h-52 object-contain" />
+    <div class="text-gray-400 text-xs font-mono">Scan for the slides</div>
+  </div>
 </div>
